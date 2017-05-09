@@ -18,7 +18,7 @@ Article.prototype.toHtml = function() {
   with a class of template a display of none. Let's make
   sure we're not accidentally hiding our cloned article! */
 
-  $('article' ).removeClass( 'template' ).addClass('blogPost');
+  $newArticle.removeClass( 'template' );
 
   if (!this.publishedOn) $newArticle.addClass('draft');
   $newArticle.data('category', this.category);
@@ -35,7 +35,7 @@ Article.prototype.toHtml = function() {
   $newArticle.find('h1').text(this.title);
   $newArticle.find('a').text(this.name);
   $newArticle.find('a').attr('href', this.authorUrl);
-  $newArticle.find('section').text(this.body);
+  $newArticle.find('section').html(this.body);
 
 
   // Display the date as a relative number of 'days ago'
