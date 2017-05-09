@@ -18,6 +18,7 @@ Article.prototype.toHtml = function() {
   with a class of template a display of none. Let's make
   sure we're not accidentally hiding our cloned article! */
 
+  $('article' ).removeClass( 'template' ).addClass('blogPost');
 
   if (!this.publishedOn) $newArticle.addClass('draft');
   $newArticle.data('category', this.category);
@@ -31,13 +32,10 @@ Article.prototype.toHtml = function() {
     4. article body, and
     5. publication date. */
 
-  var h1 = $newArticle.find('h1');
-  h1.text(this.title);
-  var a = $newArticle.find('a');
-  a.text(this.name);
-  a.attr('href', this.authorUrl);
-  var section = $newArticle.find('section');
-  section.text(this.body);
+  $newArticle.find('h1').text(this.title);
+  $newArticle.find('a').text(this.name);
+  $newArticle.find('a').attr('href', this.authorUrl);
+  $newArticle.find('section').text(this.body);
 
 
   // Display the date as a relative number of 'days ago'
