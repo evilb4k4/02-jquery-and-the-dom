@@ -33,7 +33,7 @@ Article.prototype.toHtml = function() {
     5. publication date. */
 
   $newArticle.find('h1').text(this.title);
-  $newArticle.find('a').text(this.name);
+  $newArticle.find('a').text(this.author);
   $newArticle.find('a').attr('href', this.authorUrl);
   $newArticle.find('section').html(this.body);
 
